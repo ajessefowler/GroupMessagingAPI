@@ -6,8 +6,8 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.util.Date;
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Message {
@@ -16,7 +16,7 @@ public class Message {
     private User origin;
     private Conversation conversation;
     private Date timestamp;
-    private List<User> usersRead;
+    private Set<User> usersRead;
 
     public Message() {}
 
@@ -32,14 +32,14 @@ public class Message {
     public User getOrigin() { return this.origin; }
     public Conversation getConversation() { return this.conversation; }
     public Date getTimestamp() { return this.timestamp; }
-    public List<User> getUsersRead() { return this.usersRead; }
+    public Set<User> getUsersRead() { return this.usersRead; }
 
     public void setId(Long id) { this.id = id; }
     public void setContent(String content) { this.content = content; }
     public void setOrigin(User origin) { this.origin = origin; }
     public void setConversation(Conversation conversation) { this.conversation = conversation; }
     public void setTimestamp(Date timestamp) { this.timestamp = timestamp; }
-    public void setUsersRead(List<User> usersRead) { this.usersRead = usersRead; }
+    public void setUsersRead(Set<User> usersRead) { this.usersRead = usersRead; }
 
     @Override
     public boolean equals(Object o) {

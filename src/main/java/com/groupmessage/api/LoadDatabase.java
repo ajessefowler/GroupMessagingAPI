@@ -19,12 +19,17 @@ public class LoadDatabase {
     CommandLineRunner initDatabase(UserRepository userRepository, MessageRepository messageRepository) {
         return args -> {
             // Create test users
-            log.info("Preloading " + userRepository.save(new User("galileo", "galileo",
-                    "galilei", "galileo@gmail.com", "password")));
-            log.info("Preloading " + userRepository.save(new User("bob", "bob",
-                    "saget", "bob@gmail.com", "password2")));
-            log.info("Preloading " + userRepository.save(new User("lilo", "lilo",
-                    "schnoodle", "lilo@schnoodle.com", "password3")));
+            User u1 = new User("galileo", "galileo",
+                    "galilei", "galileo@gmail.com", "password");
+            User u2 = new User("bob", "bob",
+                    "saget", "bob@gmail.com", "password2");
+            User u3 = new User("lilo", "lilo",
+                    "schnoodle", "lilo@schnoodle.com", "password3");
+
+            // Save test users
+            log.info("Preloading " + userRepository.save(u1));
+            log.info("Preloading " + userRepository.save(u2));
+            log.info("Preloading " + userRepository.save(u3));
 
             // Todo - Create test conversations
 

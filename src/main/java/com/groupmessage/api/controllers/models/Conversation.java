@@ -5,22 +5,23 @@ import com.groupmessage.api.auth.models.User;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-import java.util.List;
 import java.util.Objects;
+import java.util.Set;
 
 @Entity
 public class Conversation {
     private @Id @GeneratedValue Long id;
-    private List<User> users;
+    private Set<User> users;
+    private Set<Message> messages;
 
     public Conversation() {}
-    public Conversation(List<User> users) { this.users = users; }
+    public Conversation(Set<User> users) { this.users = users; }
 
     public Long getId() { return this.id; }
-    public List<User> getUsers() { return this.users; }
+    public Set<User> getUsers() { return this.users; }
 
     public void setId(Long id) { this.id = id; }
-    public void setUsers(List<User> users) { this.users = users; }
+    public void setUsers(Set<User> users) { this.users = users; }
 
     @Override
     public boolean equals(Object o) {
