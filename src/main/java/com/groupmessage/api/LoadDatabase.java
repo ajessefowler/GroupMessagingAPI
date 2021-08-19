@@ -2,6 +2,8 @@ package com.groupmessage.api;
 
 import com.groupmessage.api.auth.interfaces.UserRepository;
 import com.groupmessage.api.auth.models.User;
+import com.groupmessage.api.controllers.interfaces.MessageRepository;
+import com.groupmessage.api.controllers.models.Message;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.boot.CommandLineRunner;
@@ -14,13 +16,19 @@ public class LoadDatabase {
     private static final Logger log = LoggerFactory.getLogger(LoadDatabase.class);
 
     @Bean
-    CommandLineRunner initDatabase(UserRepository repository) {
+    CommandLineRunner initDatabase(UserRepository userRepository, MessageRepository messageRepository) {
         return args -> {
-            // TODO - create data for these users
-            log.info("Preloading " + repository.save(new User("jesse", "jesse",
-                    "fowler", "jesse@fowler.com", "password")));
-            log.info("Preloading " + repository.save(new User("emma", "emma",
-                    "wang", "emma@wang.com", "password2")));
+            // Create test users
+            log.info("Preloading " + userRepository.save(new User("galileo", "galileo",
+                    "galilei", "galileo@gmail.com", "password")));
+            log.info("Preloading " + userRepository.save(new User("bob", "bob",
+                    "saget", "bob@gmail.com", "password2")));
+            log.info("Preloading " + userRepository.save(new User("lilo", "lilo",
+                    "schnoodle", "lilo@schnoodle.com", "password3")));
+
+            // Todo - Create test conversations
+
+            // Todo - Create test messages
         };
     }
 }
